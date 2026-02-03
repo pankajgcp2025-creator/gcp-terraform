@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gardening
+  labels:
+    app: gardening
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: gardening
+  template:
+    metadata:
+      labels:
+        app: gardening
+    spec:
+      containers:
+        - name: gardening
+          image: gardening:latest
+          ports:
+            - containerPort: 8080
